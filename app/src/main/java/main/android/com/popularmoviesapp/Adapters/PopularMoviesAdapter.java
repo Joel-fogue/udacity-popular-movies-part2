@@ -1,8 +1,7 @@
-package main.android.com.popularmoviesapp;
+package main.android.com.popularmoviesapp.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import main.android.com.popularmoviesapp.R;
 import main.android.com.popularmoviesapp.parcels.Movie;
 
 public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdapter.SingleMovieViewHolder> {

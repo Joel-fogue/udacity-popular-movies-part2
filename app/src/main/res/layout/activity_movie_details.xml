@@ -5,14 +5,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".MovieDetailsActivity">
+
+        <TextView
+            android:id="@+id/mtrailersHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Reviews:"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Trailers:"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/overview" />
+
+        <TextView
+            android:id="@+id/mtrailerOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Trailer 1 "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtrailersHeader" />
+
+        <TextView
+            android:id="@+id/mtrailerTwo"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Trailer 2 "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtrailerOne" />
 
         <TextView
             android:id="@+id/title"
@@ -53,6 +91,8 @@
             android:layout_marginTop="20dp"
             android:background="@android:color/holo_green_dark"
             android:padding="3dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
             android:text="@string/mark_as_favorite"
             android:textAlignment="center"
             android:textColor="#ffffff"
@@ -87,18 +127,48 @@
 
         <TextView
             android:id="@+id/overview"
-            android:layout_width="374dp"
-            android:layout_height="160dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:scrollbars="vertical"
+            android:text="@string/synopsis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.567"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailPic" />
+
+        <TextView
+            android:id="@+id/mReviewsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Reviews:"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Reviews:"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtrailerTwo" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/reviewsId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/synopsis"
-            android:scrollbars = "vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.486"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailPic"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/mReviewsHeader" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import java.net.URL;
 import java.util.ArrayList;
-import main.android.com.popularmoviesapp.AsyncTasks.DownloadMovieUrlsAsyncTask;
+
+import main.android.com.popularmoviesapp.Adapters.PopularMoviesAdapter;
+import main.android.com.popularmoviesapp.AsyncTasks.FetchAllMoviesAsyncTask;
 import main.android.com.popularmoviesapp.parcels.Movie;
 import main.android.com.popularmoviesapp.utilities.NetworkUtils;
 
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements PopularMoviesAdap
     }
 
     public void fetchMoviesUrl(URL url) {
-        new DownloadMovieUrlsAsyncTask(MainActivity.this, moviePojosArrayList, mRecyclerView).execute(url);
+        new FetchAllMoviesAsyncTask(MainActivity.this, moviePojosArrayList, mRecyclerView).execute(url);
     }
 
     @Override

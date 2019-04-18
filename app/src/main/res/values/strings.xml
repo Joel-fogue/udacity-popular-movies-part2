@@ -36,4 +36,9 @@
     <string name="tab_text_3">Tab 3</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="movieId">id</string>
+    <string name="reviewAuthor">author</string>
+    <string name="reviewContent">content</string>
+    <string name="reviewId">id</string>
+    <string name="review_endpoint">287947/reviews</string>
 </resources>

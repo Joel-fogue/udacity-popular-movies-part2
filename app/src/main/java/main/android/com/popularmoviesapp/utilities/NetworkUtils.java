@@ -23,8 +23,6 @@ public class NetworkUtils {
 
     public static final String TMDB_BASE_URL = MainActivity.getContext().getString(R.string.base_url);
     public static final String QUERY_PARAM=MainActivity.getContext().getString(R.string.api_key);
-    //public static final String API_KEY="INSERT_API_KEY_HERE";
-    //public static final String API_KEY="3845e129e7a3c2d4c50bbf74d58550d8";
     /**
      * Builds the URL used to query GitHub.
      *
@@ -32,6 +30,21 @@ public class NetworkUtils {
      */
     public static URL buildUrl(String popularOrTopRatedUrl) {
         Uri builtUri = Uri.parse(TMDB_BASE_URL+popularOrTopRatedUrl).buildUpon()
+                .appendQueryParameter(QUERY_PARAM, BuildConfig.API_KEY_CONFIG)
+                .build();
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
+
+    public static URL buildOtherUrls(String pathParam) {
+        Uri builtUri = Uri.parse(TMDB_BASE_URL+pathParam).buildUpon()
                 .appendQueryParameter(QUERY_PARAM, BuildConfig.API_KEY_CONFIG)
                 .build();
 
