@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import main.android.com.popularmoviesapp.AsyncTasks.FetchAllReviewsAsyncTask;
 import main.android.com.popularmoviesapp.AsyncTasks.FetchAllTrailersAsyncTask;
 import main.android.com.popularmoviesapp.parcels.Review;
+import main.android.com.popularmoviesapp.parcels.Trailer;
 import main.android.com.popularmoviesapp.utilities.NetworkUtils;
 
 public class MovieDetailsActivity extends AppCompatActivity {
@@ -33,6 +34,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mReviewslayoutManager;
     private ArrayList<Review> mReviewsArrayList;
     public String movieId;
+    //Recyclerview for the trailers
+    private RecyclerView mTrailersRecyclerView;
+    private RecyclerView.Adapter mTrailersAdapter;
+    private RecyclerView.LayoutManager mTrailerslayoutManager;
+    private ArrayList<Trailer> mTrailersArrayList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,17 +75,27 @@ public class MovieDetailsActivity extends AppCompatActivity {
                     .centerCrop()
                     .into(mMoviePic);
         }//end if
+        //Reviews
         mReviewsArrayList = new ArrayList<Review>();
         //recyclerView for reviews
         mReviewsRecyclerView = (RecyclerView) findViewById(R.id.reviewsId);
-
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mReviewsRecyclerView.setHasFixedSize(true);
-
         // use a linear layout manager
         mReviewslayoutManager = new LinearLayoutManager(this);
         mReviewsRecyclerView.setLayoutManager(mReviewslayoutManager);
+
+        //Trailers
+        mTrailersArrayList = new ArrayList<Trailer>();
+        //recyclerView for reviews
+        mTrailersRecyclerView = (RecyclerView) findViewById(R.id.mTrailersRecyclerViewId);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mTrailersRecyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        mTrailerslayoutManager = new LinearLayoutManager(this);
+        mTrailersRecyclerView.setLayoutManager(mTrailerslayoutManager);
 
         //Adapter gets set in the FetchAllReviewsAsyncTask class
 
@@ -99,7 +116,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     }
 
     public void fetchAllTrailers(URL url) {
-        new FetchAllTrailersAsyncTask(MovieDetailsActivity.this, mTrailersArrayList, mReviewsRecyclerView).execute(url);
+        new FetchAllTrailersAsyncTask(MovieDetailsActivity.this, mTrailersArrayList, mTrailersRecyclerView).execute(url);
     }
     /**
      * SADLY I'M BREAKING THE DRY PRINCIPLE HERE BY REPEATING THIS CODE; DIDN'T WANT TO FIGHT WITH THE CONTEXT

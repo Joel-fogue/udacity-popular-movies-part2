@@ -53,7 +53,6 @@ public class FetchAllTrailersAsyncTask extends AsyncTask<URL, Void, JSONArray> {
 
     @Override
     protected void onPostExecute(JSONArray allTrailers) {
-        Log.v("trailer 2", allTrailers.length()+"");
         for (int i = 0; i < allTrailers.length(); i++) {
             JSONObject singleTrailerJsonObject = null;
             try {
@@ -61,7 +60,8 @@ public class FetchAllTrailersAsyncTask extends AsyncTask<URL, Void, JSONArray> {
                 String trailerId = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerId));
                 String trailerName = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerName));
                 String trailerKey = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerKey));
-                Trailer aTrailer = new Trailer(trailerId, trailerName, trailerKey);
+                String trailerType = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerType));
+                Trailer aTrailer = new Trailer(trailerId, trailerKey, trailerName, trailerType);
                 mTrailersPojosArrayList.add(aTrailer);
             } catch (JSONException e) {
                 e.printStackTrace();

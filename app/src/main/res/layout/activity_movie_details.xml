@@ -132,7 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mTrailersRecyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/mTrailersRecyclerViewId" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/reviewsId"
@@ -145,7 +145,7 @@
             app:layout_constraintTop_toBottomOf="@+id/mReviewsHeader" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/mTrailersRecyclerView"
+            android:id="@+id/mTrailersRecyclerViewId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="16dp"
