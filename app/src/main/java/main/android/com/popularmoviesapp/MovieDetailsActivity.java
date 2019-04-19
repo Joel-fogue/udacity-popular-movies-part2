@@ -39,7 +39,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mTrailersAdapter;
     private RecyclerView.LayoutManager mTrailerslayoutManager;
     private ArrayList<Trailer> mTrailersArrayList;
-
+    private String mMovieFullPosterPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
             String mMovieTitle = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieTitle));
             String mMovieReleaseDate = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieReleaseDate));
             String mMovieOverview = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieOverview));
-            String mMovieFullPosterPath = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieFullPosterPath));
+            mMovieFullPosterPath = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieFullPosterPath));
             String movieVoteAverage = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieVoteAverage));
             movieId = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieId));
             mTitle.setText(mMovieTitle);
@@ -116,7 +116,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     }
 
     public void fetchAllTrailers(URL url) {
-        new FetchAllTrailersAsyncTask(MovieDetailsActivity.this, mTrailersArrayList, mTrailersRecyclerView).execute(url);
+        new FetchAllTrailersAsyncTask(mMovieFullPosterPath, MovieDetailsActivity.this, mTrailersArrayList, mTrailersRecyclerView).execute(url);
     }
     /**
      * SADLY I'M BREAKING THE DRY PRINCIPLE HERE BY REPEATING THIS CODE; DIDN'T WANT TO FIGHT WITH THE CONTEXT

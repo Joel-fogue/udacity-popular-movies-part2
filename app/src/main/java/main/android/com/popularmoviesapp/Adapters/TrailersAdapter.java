@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import main.android.com.popularmoviesapp.R;
@@ -41,7 +43,7 @@ public class TrailersAdapter extends RecyclerView.Adapter<TrailersAdapter.Single
 
     class SingleReviewViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView mTrailerImageView;
+        public ImageView mTrailerImageView, mTrailerImageViewOverlay;
         public TextView mTrailerName, mTrailerType;
 
         public SingleReviewViewHolder(@NonNull View itemView) {
@@ -49,21 +51,22 @@ public class TrailersAdapter extends RecyclerView.Adapter<TrailersAdapter.Single
             mTrailerImageView = itemView.findViewById(R.id.mTrailerImageView);
             mTrailerName = itemView.findViewById(R.id.mTrailerName);
             mTrailerType = itemView.findViewById(R.id.mTrailerType);
+            mTrailerImageViewOverlay = itemView.findViewById(R.id.mTrailerImageViewOverlay);
         }
 
         public void bind(int position) {
             String trailerKey = allTrailersPojosArrayList.get(position).getTrailerKey();
             String trailerName = allTrailersPojosArrayList.get(position).getTrailerName();
             String trailerType = allTrailersPojosArrayList.get(position).getTrailerType();
-            Log.v("trailer name is 3: ", trailerName);
-
+            String fullMoviePosterPath = allTrailersPojosArrayList.get(position).getFullMoviePosterPath();
             mTrailerName.setText(trailerName);
             mTrailerType.setText(trailerType);
-//            String fullPosterPathUrl = allMoviePojosArrayList.get(position).getMovieFullPosterPath();
-//            Picasso.get()
-//                    .load(fullPosterPathUrl)
-//                    .into(singleMovieImageView);
+            Picasso.get()
+                    .load(fullMoviePosterPath)
+                    .into(mTrailerImageView);
+            //set default video player icon
+            Picasso.get()
+                    .load(R.drawable.video_play_icon).into(mTrailerImageViewOverlay);
         }
     }
-
 }

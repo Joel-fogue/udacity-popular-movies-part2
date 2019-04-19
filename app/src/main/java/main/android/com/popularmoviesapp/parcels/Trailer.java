@@ -5,13 +5,14 @@ import android.os.Parcelable;
 
 public class Trailer implements Parcelable{
 
-    public String id, trailerKey, trailerName, trailerType;
+    public String id, trailerKey, trailerName, trailerType, fullMoviePosterPath;
 
-    public Trailer(String id, String trailerKey, String trailerName, String trailerType) {
+    public Trailer(String id, String trailerKey, String trailerName, String trailerType, String fullMoviePosterPath) {
         this.id = id;
         this.trailerKey = trailerKey;
         this.trailerName = trailerName;
         this.trailerType = trailerType;
+        this.fullMoviePosterPath = fullMoviePosterPath;
     }
 
     public Trailer(Parcel parcel){
@@ -19,6 +20,7 @@ public class Trailer implements Parcelable{
         this.trailerKey = parcel.readString();
         this.trailerName = parcel.readString();
         this.trailerType = parcel.readString();
+        this.fullMoviePosterPath = parcel.readString();
     }
 
     public String getId() {
@@ -53,6 +55,14 @@ public class Trailer implements Parcelable{
         this.trailerType = trailerType;
     }
 
+    public String getFullMoviePosterPath() {
+        return fullMoviePosterPath;
+    }
+
+    public void setFullMoviePosterPath(String fullMoviePosterPath) {
+        this.fullMoviePosterPath = fullMoviePosterPath;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -64,6 +74,7 @@ public class Trailer implements Parcelable{
         parcel.writeString(trailerKey);
         parcel.writeString(trailerName);
         parcel.writeString(trailerType);
+        parcel.writeString(fullMoviePosterPath);
     }
 
     Creator<Trailer> CREATOR = new Creator<Trailer>(){

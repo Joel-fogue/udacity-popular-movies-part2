@@ -25,9 +25,11 @@ public class FetchAllTrailersAsyncTask extends AsyncTask<URL, Void, JSONArray> {
     public TrailersAdapter mTrailersAdapter;
     public RecyclerView mTrailersRecyclerView;
     public Context mTrailersContext;
+    public String fullMoviePosterPath;
 
-    public FetchAllTrailersAsyncTask(Context context, ArrayList<Trailer> mTrailersPojosArrayList, RecyclerView mTrailersRecyclerView){
+    public FetchAllTrailersAsyncTask(String fullMoviePosterPath, Context context, ArrayList<Trailer> mTrailersPojosArrayList, RecyclerView mTrailersRecyclerView){
         //super(context, moviePojosArrayList, mRecyclerView);
+        this.fullMoviePosterPath = fullMoviePosterPath;
         this.mTrailersContext=context;
         this.mTrailersPojosArrayList=mTrailersPojosArrayList;
         this.mTrailersRecyclerView=mTrailersRecyclerView;
@@ -57,12 +59,17 @@ public class FetchAllTrailersAsyncTask extends AsyncTask<URL, Void, JSONArray> {
             JSONObject singleTrailerJsonObject = null;
             try {
                 singleTrailerJsonObject = allTrailers.getJSONObject(i);
-                String trailerId = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerId));
-                String trailerName = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerName));
-                String trailerKey = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerKey));
                 String trailerType = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerType));
-                Trailer aTrailer = new Trailer(trailerId, trailerKey, trailerName, trailerType);
-                mTrailersPojosArrayList.add(aTrailer);
+                Log.v("trail 1: ", trailerType);
+                Log.v("trail 2: ", mTrailersContext.getString(R.string.trailerTypeisTrailer));
+
+                if(trailerType.toLowerCase().trim().equals(mTrailersContext.getString(R.string.trailerTypeisTrailer).toLowerCase().trim())) {
+                    String trailerId = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerId));
+                    String trailerName = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerName));
+                    String trailerKey = singleTrailerJsonObject.getString(mTrailersContext.getString(R.string.trailerKey));
+                    Trailer aTrailer = new Trailer(trailerId, trailerKey, trailerName, trailerType, fullMoviePosterPath);
+                    mTrailersPojosArrayList.add(aTrailer);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

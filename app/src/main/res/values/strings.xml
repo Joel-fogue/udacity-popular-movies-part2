@@ -46,4 +46,5 @@
     <string name="trailerName">name</string>
     <string name="trailerKey">key</string>
     <string name="trailerType">type</string>
+    <string name="trailerTypeisTrailer">Trailer</string>
 </resources>
