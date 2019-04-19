@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import main.android.com.popularmoviesapp.AsyncTasks.FetchAllReviewsAsyncTask;
+import main.android.com.popularmoviesapp.AsyncTasks.FetchAllTrailersAsyncTask;
 import main.android.com.popularmoviesapp.parcels.Review;
 import main.android.com.popularmoviesapp.utilities.NetworkUtils;
 
@@ -83,20 +84,23 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         //Get the reviews api calls
         ///movie/{id}/reviews
-        URL moviesUrl = NetworkUtils.buildOtherUrls(movieId + "/" + getString(R.string.review_endpoint));
+        URL reviewsUrl = NetworkUtils.buildOtherUrls(movieId + "/" + getString(R.string.review_endpoint));
         if (isOnline())
-            fetchAllReviews(moviesUrl);
-
+            fetchAllReviews(reviewsUrl);
         //Get the trailers
         ///movie/{id}/videos
-
-
+        URL trailersUrl = NetworkUtils.buildOtherUrls(movieId + "/" + getString(R.string.trailers_endpoint));
+        if (isOnline())
+            fetchAllTrailers(trailersUrl);
     }//end onCreate()
 
     public void fetchAllReviews(URL url) {
         new FetchAllReviewsAsyncTask(MovieDetailsActivity.this, mReviewsArrayList, mReviewsRecyclerView).execute(url);
     }
 
+    public void fetchAllTrailers(URL url) {
+        new FetchAllTrailersAsyncTask(MovieDetailsActivity.this, mTrailersArrayList, mReviewsRecyclerView).execute(url);
+    }
     /**
      * SADLY I'M BREAKING THE DRY PRINCIPLE HERE BY REPEATING THIS CODE; DIDN'T WANT TO FIGHT WITH THE CONTEXT
      * Got this code from here: https://developer.android.com/training/monitoring-device-state/connectivity-monitoring

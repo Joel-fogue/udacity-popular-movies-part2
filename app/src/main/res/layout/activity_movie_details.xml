@@ -32,29 +32,6 @@
             app:layout_constraintTop_toBottomOf="@+id/overview" />
 
         <TextView
-            android:id="@+id/mtrailerOne"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="Trailer 1 "
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mtrailersHeader" />
-
-        <TextView
-            android:id="@+id/mtrailerTwo"
-            android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="Trailer 2 "
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mtrailerOne" />
-
-        <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="157dp"
@@ -145,7 +122,7 @@
             android:id="@+id/mReviewsHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:hint="Reviews:"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -155,7 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mtrailerTwo" />
+            app:layout_constraintTop_toBottomOf="@+id/mTrailersRecyclerView" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/reviewsId"
@@ -166,6 +143,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mReviewsHeader" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mTrailersRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtrailersHeader" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
