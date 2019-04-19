@@ -66,12 +66,13 @@ public class FetchAllReviewsAsyncTask extends AsyncTask<URL, Void, JSONArray> {
                 e.printStackTrace();
             }
         }//end loop
-        //if (mReviewsAdapter == null && mReviewsPojosArrayList.size() != 0) {
+        if (mReviewsAdapter == null && mReviewsPojosArrayList.size() != 0) {
             //Instantiating our adapter class
             mReviewsAdapter = new ReviewsAdapter(mReviewsPojosArrayList);
         Log.v("review 1", mReviewsPojosArrayList.get(0).getReviewAuthor());
             mReviewsRecyclerView.setAdapter(mReviewsAdapter);
-//        } else {
+        }
+// else {
 //            mAdapter.updateMoviesListWithinAdapter(mReviewsPojosArrayList);
 //        }
         super.onPostExecute(allReviews);

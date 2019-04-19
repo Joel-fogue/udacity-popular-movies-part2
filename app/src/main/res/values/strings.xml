@@ -40,5 +40,5 @@
     <string name="reviewAuthor">author</string>
     <string name="reviewContent">content</string>
     <string name="reviewId">id</string>
-    <string name="review_endpoint">287947/reviews</string>
+    <string name="review_endpoint">reviews</string>
 </resources>

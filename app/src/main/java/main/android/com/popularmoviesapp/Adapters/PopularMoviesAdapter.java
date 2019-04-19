@@ -2,6 +2,7 @@ package main.android.com.popularmoviesapp.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,7 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
         singleMovieViewHolder.bind(i);
     }
 
-    class SingleMovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class SingleMovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView singleMovieImageView;
 

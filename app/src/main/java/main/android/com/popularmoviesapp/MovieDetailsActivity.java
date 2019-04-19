@@ -31,6 +31,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mReviewsAdapter;
     private RecyclerView.LayoutManager mReviewslayoutManager;
     private ArrayList<Review> mReviewsArrayList;
+    public String movieId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
             String mMovieOverview = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieOverview));
             String mMovieFullPosterPath = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieFullPosterPath));
             String movieVoteAverage = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieVoteAverage));
-            String movieId = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieId));
+            movieId = intentThatCreatedThisActivity.getStringExtra(getString(R.string.movieId));
             mTitle.setText(mMovieTitle);
             mReleaseDate.setText(mMovieReleaseDate);
             mOverview.setText(mMovieOverview);
@@ -82,9 +83,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         //Get the reviews api calls
         ///movie/{id}/reviews
-        URL moviesUrl = NetworkUtils.buildOtherUrls(getString(R.string.review_endpoint));
-        //if (isOnline())
-        fetchMoviesUrl(moviesUrl);
+        URL moviesUrl = NetworkUtils.buildOtherUrls(movieId + "/" + getString(R.string.review_endpoint));
+        if (isOnline())
+            fetchAllReviews(moviesUrl);
 
         //Get the trailers
         ///movie/{id}/videos
@@ -92,7 +93,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     }//end onCreate()
 
-    public void fetchMoviesUrl(URL url) {
+    public void fetchAllReviews(URL url) {
         new FetchAllReviewsAsyncTask(MovieDetailsActivity.this, mReviewsArrayList, mReviewsRecyclerView).execute(url);
     }
 
