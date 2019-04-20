@@ -20,11 +20,12 @@
         android:id="@+id/mTrailerImageViewOverlay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/mTrailerImageView"
         app:layout_constraintEnd_toEndOf="@+id/mTrailerImageView"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/mTrailerImageView"
-        app:layout_constraintTop_toTopOf="@+id/mTrailerImageView"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars[10]" />
 
     <TextView

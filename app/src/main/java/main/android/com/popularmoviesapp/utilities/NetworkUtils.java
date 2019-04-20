@@ -22,14 +22,15 @@ import main.android.com.popularmoviesapp.R;
 public class NetworkUtils {
 
     public static final String TMDB_BASE_URL = MainActivity.getContext().getString(R.string.base_url);
-    public static final String QUERY_PARAM=MainActivity.getContext().getString(R.string.api_key);
+    public static final String QUERY_PARAM = MainActivity.getContext().getString(R.string.api_key);
+
     /**
      * Builds the URL used to query GitHub.
      *
      * @return The URL to use to query the GitHub server.
      */
     public static URL buildUrl(String popularOrTopRatedUrl) {
-        Uri builtUri = Uri.parse(TMDB_BASE_URL+popularOrTopRatedUrl).buildUpon()
+        Uri builtUri = Uri.parse(TMDB_BASE_URL + popularOrTopRatedUrl).buildUpon()
                 .appendQueryParameter(QUERY_PARAM, BuildConfig.API_KEY_CONFIG)
                 .build();
 
@@ -44,7 +45,7 @@ public class NetworkUtils {
     }
 
     public static URL buildOtherUrls(String pathParam) {
-        Uri builtUri = Uri.parse(TMDB_BASE_URL+pathParam).buildUpon()
+        Uri builtUri = Uri.parse(TMDB_BASE_URL + pathParam).buildUpon()
                 .appendQueryParameter(QUERY_PARAM, BuildConfig.API_KEY_CONFIG)
                 .build();
 
@@ -93,14 +94,20 @@ public class NetworkUtils {
             } else {
                 return null;
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             throw e;
-        }
-        finally {
+        } finally {
             urlConnection.disconnect();
         }
     }
 
-
+    public static Uri getTrailerUri(String youtubeKey) {
+        Uri uri = Uri.parse("https://www.youtube.com/")
+            .buildUpon()
+            .path("watch")
+            .appendQueryParameter("v", youtubeKey)
+            .build();
+        return uri;
+    }
 
 }
