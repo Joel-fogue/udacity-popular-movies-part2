@@ -1,11 +1,20 @@
 package main.android.com.popularmoviesapp.parcels;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+@Entity
 public class Movie implements Parcelable{
 
-    private String id, movieTitle, movieReleaseDate, movieOverview, movieFullPosterPath, movieVoteAverage;
+    @PrimaryKey(autoGenerate = true)
+    private String id;
+    private String movieTitle;
+    private String movieReleaseDate;
+    private String movieOverview;
+    private String movieFullPosterPath;
+    private String movieVoteAverage;
 
     public Movie(String id, String movieTitle, String movieReleaseDate, String movieOverview, String moviePosterPath, String movieVoteAverage) {
         this.id = id;
@@ -15,6 +24,17 @@ public class Movie implements Parcelable{
         this.movieFullPosterPath = moviePosterPath;
         this.movieVoteAverage = movieVoteAverage;
     }
+    
+    //We need this second constructor WITHOUT the id since a movie will get added to the DB with a AUTO-INCREMENTED ID
+    public Movie(String movieTitle, String movieReleaseDate, String movieOverview, String moviePosterPath, String movieVoteAverage) {
+        this.id = id;
+        this.movieTitle = movieTitle;
+        this.movieReleaseDate = movieReleaseDate;
+        this.movieOverview = movieOverview;
+        this.movieFullPosterPath = moviePosterPath;
+        this.movieVoteAverage = movieVoteAverage;
+    }
+
 
     public Movie(Parcel parcel){
         this.id = parcel.readString();
