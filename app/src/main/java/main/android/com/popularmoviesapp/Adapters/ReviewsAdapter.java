@@ -5,15 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import main.android.com.popularmoviesapp.R;
-import main.android.com.popularmoviesapp.parcels.Review;
+import main.android.com.popularmoviesapp.Parcels.Review;
 
 public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.SingleReviewViewHolder> {
     ArrayList<Review> allReviewsPojosArrayList;

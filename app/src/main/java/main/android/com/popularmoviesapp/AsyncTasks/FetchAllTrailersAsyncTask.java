@@ -12,12 +12,9 @@ import org.json.JSONObject;
 import java.net.URL;
 import java.util.ArrayList;
 
-import main.android.com.popularmoviesapp.Adapters.PopularMoviesAdapter;
 import main.android.com.popularmoviesapp.Adapters.TrailersAdapter;
 import main.android.com.popularmoviesapp.R;
-import main.android.com.popularmoviesapp.parcels.Movie;
-import main.android.com.popularmoviesapp.parcels.Review;
-import main.android.com.popularmoviesapp.parcels.Trailer;
+import main.android.com.popularmoviesapp.Parcels.Trailer;
 import main.android.com.popularmoviesapp.utilities.NetworkUtils;
 
 public class FetchAllTrailersAsyncTask extends AsyncTask<URL, Void, JSONArray> {

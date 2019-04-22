@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +18,8 @@ import java.util.ArrayList;
 
 import main.android.com.popularmoviesapp.AsyncTasks.FetchAllReviewsAsyncTask;
 import main.android.com.popularmoviesapp.AsyncTasks.FetchAllTrailersAsyncTask;
-import main.android.com.popularmoviesapp.parcels.Review;
-import main.android.com.popularmoviesapp.parcels.Trailer;
+import main.android.com.popularmoviesapp.Parcels.Review;
+import main.android.com.popularmoviesapp.Parcels.Trailer;
 import main.android.com.popularmoviesapp.utilities.NetworkUtils;
 
 public class MovieDetailsActivity extends AppCompatActivity {

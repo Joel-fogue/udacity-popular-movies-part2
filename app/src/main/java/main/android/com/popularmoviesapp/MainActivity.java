@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import main.android.com.popularmoviesapp.Adapters.PopularMoviesAdapter;
 import main.android.com.popularmoviesapp.AsyncTasks.FetchAllMoviesAsyncTask;
-import main.android.com.popularmoviesapp.parcels.Movie;
+import main.android.com.popularmoviesapp.Database.Movie;
 import main.android.com.popularmoviesapp.utilities.NetworkUtils;
 
 public class MainActivity extends AppCompatActivity implements PopularMoviesAdapter.OnRecyclerViewClickListener {

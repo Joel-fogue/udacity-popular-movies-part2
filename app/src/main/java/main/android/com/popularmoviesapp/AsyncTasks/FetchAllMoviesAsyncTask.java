@@ -13,10 +13,9 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import main.android.com.popularmoviesapp.Adapters.PopularMoviesAdapter;
-import main.android.com.popularmoviesapp.MainActivity;
 import main.android.com.popularmoviesapp.MovieDetailsActivity;
 import main.android.com.popularmoviesapp.R;
-import main.android.com.popularmoviesapp.parcels.Movie;
+import main.android.com.popularmoviesapp.Database.Movie;
 import main.android.com.popularmoviesapp.utilities.NetworkUtils;
 
 public class FetchAllMoviesAsyncTask extends AsyncTask<URL, Void, JSONArray>

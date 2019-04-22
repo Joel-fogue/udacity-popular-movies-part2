@@ -1,4 +1,4 @@
-package main.android.com.popularmoviesapp.parcels;
+package main.android.com.popularmoviesapp.Parcels;
 
 import android.os.Parcel;
 import android.os.Parcelable;
